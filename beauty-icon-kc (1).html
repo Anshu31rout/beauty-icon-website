@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Beauty Icon KC — Premium Local Beauty Supply</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --off-white: #f7f6f4;
+    --gray-light: #e8e6e2;
+    --gray-mid: #b0aba3;
+    --gray-dark: #3a3835;
+    --serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Inter', system-ui, sans-serif;
+    --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --max-w: 1320px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--white); color: var(--black); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  img { display: block; max-width: 100%; }
+  a { text-decoration: none; color: inherit; }
+
+  /* ── UTILITY ── */
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
+  .serif { font-family: var(--serif); }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.85rem 2rem; border: 1px solid var(--black);
+    cursor: pointer; transition: var(--transition); white-space: nowrap;
+    background: transparent; color: var(--black);
+  }
+  .btn:hover { background: var(--black); color: var(--white); }
+  .btn-solid { background: var(--black); color: var(--white); }
+  .btn-solid:hover { background: var(--gray-dark); }
+  .btn-white { border-color: var(--white); color: var(--white); }
+  .btn-white:hover { background: var(--white); color: var(--black); }
+
+  .section-eyebrow {
+    display: block; font-family: var(--sans); font-size: 0.7rem;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray-mid);
+    margin-bottom: 1.25rem;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 1000;
+    background: var(--white); border-bottom: 1px solid var(--gray-light);
+    transition: box-shadow 0.3s ease;
+  }
+  .nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.07); }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px; gap: 1rem;
+  }
+  .nav-logo {
+    font-family: var(--serif); font-size: 1.3rem; font-weight: 700;
+    letter-spacing: 0.04em; white-space: nowrap; flex-shrink: 0;
+  }
+  .nav-logo span { font-style: italic; font-weight: 400; }
+  .nav-links {
+    display: flex; align-items: center; gap: 0.2rem;
+    list-style: none; flex-wrap: wrap;
+  }
+  .nav-links a {
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.4rem 0.65rem; color: var(--gray-dark);
+    transition: color var(--transition);
+    font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta { flex-shrink: 0; }
+  .nav-cta .btn { padding: 0.65rem 1.4rem; font-size: 0.7rem; }
+
+  .nav-hamburger {
+    display: none; background: none; border: none; cursor: pointer;
+    flex-direction: column; gap: 5px; padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block; width: 22px; height: 1.5px; background: var(--black); transition: var(--transition);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 92vh; display: grid; grid-template-columns: 1fr 1fr 1fr;
+    position: relative; overflow: hidden;
+  }
+  .hero-panel {
+    position: relative; overflow: hidden; min-height: 92vh;
+  }
+  .hero-panel-img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    transition: transform 0.8s ease;
+    background: var(--gray-dark);
+  }
+  .hero-panel:hover .hero-panel-img { transform: scale(1.03); }
+
+  /* Placeholder gradient backgrounds for hero panels */
+  .hero-panel-1 .hero-panel-img { background: linear-gradient(160deg, #1a1a1a 0%, #2d2d2a 50%, #3a3835 100%); }
+  .hero-panel-2 .hero-panel-img { background: linear-gradient(160deg, #2a2a27 0%, #1a1a1a 50%, #0a0a0a 100%); }
+  .hero-panel-3 .hero-panel-img { background: linear-gradient(160deg, #3a3835 0%, #2d2d2a 50%, #1a1a1a 100%); }
+
+  .hero-panel-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.55) 100%);
+  }
+  .hero-panel-2 .hero-panel-overlay {
+    background: linear-gradient(to bottom, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.7) 100%);
+  }
+
+  /* Placeholder icon for hero panels */
+  .hero-placeholder-icon {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+    opacity: 0.35;
+  }
+  .hero-placeholder-icon svg { width: 36px; height: 36px; fill: none; stroke: #fff; stroke-width: 1; }
+  .hero-placeholder-icon span {
+    font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #fff; white-space: nowrap;
+  }
+
+  .hero-content {
+    position: absolute; inset: 0; z-index: 10;
+    display: flex; flex-direction: column;
+    justify-content: flex-end; align-items: flex-start;
+    padding: 5rem 4rem 4.5rem;
+    pointer-events: none;
+    /* Span across all 3 columns */
+    grid-column: 1 / -1; grid-row: 1;
+  }
+  /* This is actually positioned absolutely, so grid doesn't matter — but we need it overlaid */
+
+  .hero-content-inner {
+    max-width: 760px; pointer-events: all;
+  }
+  .hero-ctas { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+
+  /* Hero is a grid container; overlay content with absolute */
+  .hero { position: relative; }
+  .hero-overlay-content {
+    position: absolute; inset: 0; z-index: 20;
+    display: flex; flex-direction: column;
+    justify-content: flex-end; align-items: flex-start;
+    padding: 5rem 4rem 4.5rem;
+  }
+  .hero-scroll-hint {
+    position: absolute; bottom: 2rem; right: 4rem; z-index: 20;
+    display: flex; align-items: center; gap: 0.6rem;
+    font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: rgba(255,255,255,0.5);
+  }
+  .hero-scroll-hint::before {
+    content: ''; display: block; width: 40px; height: 1px;
+    background: rgba(255,255,255,0.35);
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--black); padding: 1.1rem 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .trust-bar-inner {
+    display: flex; align-items: center; justify-content: center;
+    flex-wrap: wrap; gap: 0;
+  }
+  .trust-item {
+    font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: rgba(255,255,255,0.75); padding: 0.35rem 1.5rem;
+    white-space: nowrap;
+  }
+  .trust-divider {
+    color: rgba(255,255,255,0.2); font-size: 0.75rem;
+  }
+
+  /* ── PRODUCT CATEGORIES ── */
+  .categories { padding: 7rem 0; background: var(--off-white); }
+  .categories-header { text-align: center; margin-bottom: 4rem; }
+  .categories-header h2 {
+    font-family: var(--serif); font-size: clamp(1.9rem, 3vw, 2.8rem);
+    font-weight: 400; letter-spacing: -0.01em; margin-bottom: 1rem;
+  }
+  .categories-header p {
+    font-size: 0.9rem; color: var(--gray-dark); max-width: 480px; margin: 0 auto;
+    line-height: 1.75;
+  }
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px; background: var(--gray-light);
+    border: 1px solid var(--gray-light);
+  }
+  .category-card {
+    background: var(--white); position: relative; overflow: hidden;
+    aspect-ratio: 3/4; cursor: pointer; group: true;
+  }
+  .category-card-bg {
+    position: absolute; inset: 0;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .category-card:hover .category-card-bg { transform: scale(1.06); }
+
+  /* Category placeholder patterns */
+  .cat-1 .category-card-bg { background: linear-gradient(145deg, #1c1c1a 0%, #2e2e2b 100%); }
+  .cat-2 .category-card-bg { background: linear-gradient(145deg, #2a2a27 0%, #181816 100%); }
+  .cat-3 .category-card-bg { background: linear-gradient(145deg, #222220 0%, #353532 100%); }
+  .cat-4 .category-card-bg { background: linear-gradient(145deg, #161614 0%, #2c2c29 100%); }
+  .cat-5 .category-card-bg { background: linear-gradient(145deg, #302e2c 0%, #1a1917 100%); }
+  .cat-6 .category-card-bg { background: linear-gradient(145deg, #1e1e1c 0%, #303030 100%); }
+  .cat-7 .category-card-bg { background: linear-gradient(145deg, #262624 0%, #1a1918 100%); }
+  .cat-8 .category-card-bg { background: linear-gradient(145deg, #282826 0%, #3a3835 100%); }
+  .cat-9 .category-card-bg { background: linear-gradient(145deg, #1a1a18 0%, #2c2c2a 100%); }
+  .cat-10 .category-card-bg { background: linear-gradient(145deg, #323230 0%, #1e1e1c 100%); }
+
+  .category-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.1) 55%);
+  }
+  .category-card-content {
+    position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem 1.25rem;
+  }
+  .category-card-label {
+    font-family: var(--serif); font-size: 1rem; font-weight: 500;
+    color: var(--white); line-height: 1.3; margin-bottom: 0.5rem;
+  }
+  .category-card-arrow {
+    font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: rgba(255,255,255,0.5);
+    transition: color var(--transition);
+  }
+  .category-card:hover .category-card-arrow { color: rgba(255,255,255,0.9); }
+  .category-icon {
+    position: absolute; top: 1.25rem; left: 1.25rem;
+    width: 28px; height: 28px; opacity: 0.3;
+  }
+
+  /* ── FEATURED BRANDS ── */
+  .brands { padding: 7rem 0; background: var(--white); }
+  .brands-header { text-align: center; margin-bottom: 1rem; }
+  .brands-header h2 {
+    font-family: var(--serif); font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+    font-weight: 400; letter-spacing: -0.01em; margin-bottom: 0.75rem;
+  }
+  .brands-header p {
+    font-size: 0.85rem; color: var(--gray-mid); letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .brands-divider {
+    width: 40px; height: 1px; background: var(--gray-light); margin: 2.5rem auto;
+  }
+  .brands-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    gap: 1px; border: 1px solid var(--gray-light); background: var(--gray-light);
+    max-width: 1000px; margin: 0 auto;
+  }
+  .brand-cell {
+    background: var(--white); display: flex; align-items: center;
+    justify-content: center; padding: 2.25rem 1.5rem; min-height: 100px;
+    transition: background var(--transition); cursor: default;
+  }
+  .brand-cell:hover { background: var(--off-white); }
+  .brand-placeholder {
+    font-family: var(--serif); font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-mid);
+    text-align: center; line-height: 1.4;
+  }
+
+  /* ── WHY SHOP ── */
+  .why { padding: 7rem 0; background: var(--black); }
+  .why-header { text-align: center; margin-bottom: 5rem; }
+  .why-header .section-eyebrow { color: rgba(255,255,255,0.35); }
+  .why-header h2 {
+    font-family: var(--serif); font-size: clamp(1.9rem, 3vw, 2.8rem);
+    font-weight: 400; color: var(--white); letter-spacing: -0.01em;
+  }
+  .why-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .why-pillar {
+    padding: 3rem 2.5rem; border-right: 1px solid rgba(255,255,255,0.1);
+    transition: background var(--transition);
+  }
+  .why-pillar:last-child { border-right: none; }
+  .why-pillar:hover { background: rgba(255,255,255,0.03); }
+  .why-number {
+    font-family: var(--serif); font-size: 3rem; font-weight: 700;
+    color: rgba(255,255,255,0.07); line-height: 1; margin-bottom: 1.75rem;
+    font-style: italic;
+  }
+  .why-pillar h3 {
+    font-family: var(--serif); font-size: 1.2rem; font-weight: 500;
+    color: var(--white); margin-bottom: 1rem; letter-spacing: -0.01em;
+  }
+  .why-pillar p {
+    font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.8;
+  }
+  .why-icon {
+    width: 32px; height: 32px; margin-bottom: 2rem;
+    stroke: rgba(255,255,255,0.4); fill: none;
+  }
+
+  /* ── PROFESSIONALS ── */
+  .professionals {
+    padding: 0; background: var(--off-white);
+    display: grid; grid-template-columns: 1fr 1fr; min-height: 600px;
+  }
+  .professionals-visual {
+    background: linear-gradient(135deg, #141412 0%, #2a2825 60%, #3a3835 100%);
+    position: relative; display: flex; align-items: center; justify-content: center;
+    min-height: 500px;
+  }
+  .professionals-visual-placeholder {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 1rem; opacity: 0.25;
+  }
+  .professionals-visual-placeholder svg { width: 48px; height: 48px; stroke: #fff; fill: none; }
+  .professionals-visual-placeholder span {
+    font-family: var(--sans); font-size: 0.62rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: #fff;
+  }
+  .professionals-vertical-text {
+    position: absolute; left: 2rem; top: 50%; transform: translateY(-50%) rotate(-90deg);
+    transform-origin: center; font-family: var(--sans); font-size: 0.6rem;
+    letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.2);
+    white-space: nowrap;
+  }
+  .professionals-content {
+    padding: 6rem 5rem; display: flex; flex-direction: column; justify-content: center;
+  }
+  .professionals-content h2 {
+    font-family: var(--serif); font-size: clamp(1.7rem, 2.5vw, 2.4rem);
+    font-weight: 400; letter-spacing: -0.01em; margin-bottom: 1.25rem; line-height: 1.25;
+  }
+  .professionals-content > p {
+    font-size: 0.9rem; color: var(--gray-dark); line-height: 1.85;
+    max-width: 420px; margin-bottom: 3rem;
+  }
+  .pro-links { display: flex; flex-direction: column; gap: 0; margin-bottom: 3rem; }
+  .pro-link {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 0; border-bottom: 1px solid var(--gray-light);
+    font-family: var(--serif); font-size: 1.05rem; font-weight: 500;
+    color: var(--black); cursor: pointer; transition: var(--transition);
+    gap: 1rem;
+  }
+  .pro-link:first-child { border-top: 1px solid var(--gray-light); }
+  .pro-link:hover { color: var(--gray-dark); padding-left: 0.5rem; }
+  .pro-link-arrow {
+    font-family: var(--sans); font-size: 1rem; color: var(--gray-mid);
+    transition: transform var(--transition);
+  }
+  .pro-link:hover .pro-link-arrow { transform: translateX(4px); }
+
+  /* ── OUR STORY ── */
+  .story {
+    padding: 0; display: grid; grid-template-columns: 1fr 1fr; min-height: 640px;
+  }
+  .story-content {
+    padding: 8rem 6rem; display: flex; flex-direction: column; justify-content: center;
+    background: var(--white);
+  }
+  .story-content h2 {
+    font-family: var(--serif); font-size: clamp(1.9rem, 3vw, 2.8rem);
+    font-weight: 400; letter-spacing: -0.01em; line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+  .story-content h2 em { font-style: italic; font-weight: 400; }
+  .story-content p {
+    font-size: 0.92rem; line-height: 1.9; color: var(--gray-dark);
+    margin-bottom: 1.25rem; max-width: 460px;
+  }
+  .story-content .btn { margin-top: 1rem; }
+  .story-visual {
+    background: linear-gradient(145deg, #1e1d1b 0%, #2e2d2a 40%, #3a3835 100%);
+    position: relative; overflow: hidden; min-height: 500px;
+  }
+  .story-visual-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(255,255,255,0.06) 0%, transparent 100%);
+  }
+  .story-visual-quote {
+    position: absolute; bottom: 4rem; left: 3rem; right: 3rem;
+    font-family: var(--serif); font-size: 1.1rem; font-style: italic;
+    font-weight: 400; color: rgba(255,255,255,0.55); line-height: 1.65;
+  }
+  .story-visual-quote::before {
+    content: '\201C';
+    display: block; font-size: 3rem; line-height: 1;
+    color: rgba(255,255,255,0.2); margin-bottom: 0.25rem;
+  }
+  .story-placeholder {
+    position: absolute; top: 40%; left: 50%; transform: translate(-50%,-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.75rem; opacity: 0.2;
+  }
+  .story-placeholder svg { width: 40px; height: 40px; stroke: #fff; fill: none; }
+  .story-placeholder span {
+    font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #fff;
+  }
+
+  /* ── BLOG ── */
+  .blog { padding: 7rem 0; background: var(--off-white); }
+  .blog-header { text-align: center; margin-bottom: 4rem; }
+  .blog-header h2 {
+    font-family: var(--serif); font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+    font-weight: 400; letter-spacing: -0.01em; margin-bottom: 0.75rem;
+  }
+  .blog-header p {
+    font-size: 0.85rem; color: var(--gray-mid); max-width: 420px; margin: 0 auto;
+  }
+  .blog-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .blog-card {
+    background: var(--white); border: 1px solid var(--gray-light);
+    overflow: hidden; cursor: pointer; transition: box-shadow var(--transition);
+  }
+  .blog-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
+  .blog-card-image {
+    aspect-ratio: 16/9; position: relative;
+    background: linear-gradient(135deg, #1a1a18 0%, #2e2d2a 100%);
+    overflow: hidden;
+  }
+  .blog-card-image-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%);
+  }
+  .blog-card-category {
+    position: absolute; top: 1rem; left: 1rem;
+    font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: rgba(255,255,255,0.75);
+    background: rgba(0,0,0,0.4); padding: 0.3rem 0.7rem;
+  }
+  .blog-card-body { padding: 1.75rem 1.5rem; }
+  .blog-card-meta {
+    font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gray-mid); margin-bottom: 0.75rem;
+  }
+  .blog-card-body h3 {
+    font-family: var(--serif); font-size: 1.1rem; font-weight: 500;
+    letter-spacing: -0.01em; line-height: 1.35; margin-bottom: 0.85rem;
+    color: var(--black);
+  }
+  .blog-card-body p {
+    font-size: 0.82rem; color: var(--gray-dark); line-height: 1.75; margin-bottom: 1.25rem;
+  }
+  .blog-card-link {
+    font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--black); border-bottom: 1px solid var(--black);
+    padding-bottom: 2px; transition: color var(--transition), border-color var(--transition);
+    display: inline-block;
+  }
+  .blog-card-link:hover { color: var(--gray-mid); border-color: var(--gray-mid); }
+  .blog-view-all { text-align: center; margin-top: 3rem; }
+
+  /* ── LOCATION ── */
+  .location { padding: 7rem 0; background: var(--white); }
+  .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .location-label {
+    font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gray-mid); margin-bottom: 0.5rem;
+  }
+  .location-value {
+    font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--black);
+    margin-bottom: 0.25rem;
+  }
+  .location-sub {
+    font-size: 0.82rem; color: var(--gray-dark); line-height: 1.7;
+  }
+  .location-block { margin-bottom: 2.5rem; }
+  .location-info h2 {
+    font-family: var(--serif); font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+    font-weight: 400; letter-spacing: -0.01em; margin-bottom: 3rem;
+  }
+  .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 2rem; margin-bottom: 0.5rem; }
+  .hours-row {
+    display: contents;
+  }
+  .hours-day { font-size: 0.82rem; color: var(--gray-dark); }
+  .hours-time { font-size: 0.82rem; color: var(--black); font-weight: 500; }
+  .location-contact-btns {
+    display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem;
+  }
+  .btn-whatsapp {
+    background: none; border: 1px solid #25D366; color: #25D366;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1.5rem;
+    cursor: pointer; transition: var(--transition); white-space: nowrap;
+  }
+  .btn-whatsapp:hover { background: #25D366; color: var(--white); }
+  .map-container {
+    background: var(--off-white); border: 1px solid var(--gray-light);
+    position: relative; height: 440px; overflow: hidden; display: flex;
+    align-items: center; justify-content: center;
+  }
+  .map-placeholder {
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    text-align: center;
+  }
+  .map-placeholder svg { width: 40px; height: 40px; stroke: var(--gray-mid); fill: none; }
+  .map-placeholder span {
+    font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gray-mid);
+  }
+  .map-placeholder small {
+    font-size: 0.75rem; color: var(--gray-mid); line-height: 1.5;
+    max-width: 220px;
+  }
+  .map-directions-btn { margin-top: 1.5rem; }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: var(--black); padding: 8rem 2rem; text-align: center;
+  }
+  .final-cta .section-eyebrow { margin-bottom: 1.5rem; color: rgba(255,255,255,0.35); }
+  .final-cta h2 {
+    font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 400; color: var(--white); letter-spacing: -0.02em;
+    line-height: 1.2; max-width: 700px; margin: 0 auto 1rem;
+  }
+  .final-cta h2 em { font-style: italic; }
+  .final-cta p {
+    font-size: 0.9rem; color: rgba(255,255,255,0.45); margin: 0 auto 3rem;
+    max-width: 460px; line-height: 1.75;
+  }
+  .final-cta-btns { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+  /* ── FOOTER ── */
+  .footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.08); }
+  .footer-main {
+    padding: 4rem 0 3rem; display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem;
+  }
+  .footer-brand h3 {
+    font-family: var(--serif); font-size: 1.2rem; font-weight: 700;
+    color: var(--white); margin-bottom: 1rem; letter-spacing: 0.03em;
+  }
+  .footer-brand p {
+    font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.8;
+    max-width: 260px; margin-bottom: 1.5rem;
+  }
+  .footer-social { display: flex; gap: 1rem; }
+  .footer-social a {
+    width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.45); transition: var(--transition);
+  }
+  .footer-social a:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+  .footer-social svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+  .footer-col h4 {
+    font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 1.25rem;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-col a {
+    font-size: 0.82rem; color: rgba(255,255,255,0.45); transition: color var(--transition);
+  }
+  .footer-col a:hover { color: rgba(255,255,255,0.85); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07); padding: 1.5rem 0;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-bottom p, .footer-bottom a {
+    font-size: 0.72rem; color: rgba(255,255,255,0.25);
+  }
+  .footer-bottom a:hover { color: rgba(255,255,255,0.5); }
+  .footer-bottom-links { display: flex; gap: 1.5rem; }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    .categories-grid { grid-template-columns: repeat(5, 1fr); }
+    .footer-main { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-pillar { border-right: 1px solid rgba(255,255,255,0.1); }
+    .why-pillar:nth-child(2) { border-right: none; }
+    .why-pillar:nth-child(4) { border-right: none; }
+    .brands-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-panel-1, .hero-panel-3 { display: none; }
+    .hero-panel { min-height: 80vh; }
+    .hero-overlay-content { padding: 3rem 2rem 4rem; }
+    .categories-grid { grid-template-columns: repeat(3, 1fr); }
+    .professionals { grid-template-columns: 1fr; }
+    .professionals-visual { min-height: 300px; }
+    .professionals-content { padding: 4rem 2.5rem; }
+    .story { grid-template-columns: 1fr; }
+    .story-visual { min-height: 350px; }
+    .story-content { padding: 5rem 2.5rem; }
+    .location-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+
+  @media (max-width: 640px) {
+    .categories-grid { grid-template-columns: repeat(2, 1fr); }
+    .blog-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-pillar { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .brands-grid { grid-template-columns: repeat(3, 1fr); }
+    .footer-main { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-ctas { flex-direction: column; }
+    .hero-ctas .btn { width: 100%; justify-content: center; }
+    .final-cta-btns { flex-direction: column; align-items: stretch; }
+    .final-cta-btns .btn { justify-content: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Beauty Icon KC home">
+        Beauty <span>Icon</span> KC
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Brands</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">For Professionals</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="tel:+1XXXXXXXXXX" class="btn btn-solid">Call to Check Availability</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero" aria-label="Hero">
+  <!-- Panel 1 -->
+  <div class="hero-panel hero-panel-1" aria-hidden="true">
+    <img class="hero-panel-img" src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=900&q=85" alt="Luxury beauty lifestyle — woman with glowing skin and elegant makeup" loading="eager" style="width:100%;height:100%;object-fit:cover;object-position:center top;position:absolute;inset:0;" />
+    <div class="hero-panel-overlay"></div>
+  </div>
+
+  <!-- Panel 2 (center — most prominent) -->
+  <div class="hero-panel hero-panel-2" aria-hidden="true">
+    <img class="hero-panel-img" src="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=900&q=85" alt="Premium luxury beauty products arranged elegantly" loading="eager" style="width:100%;height:100%;object-fit:cover;object-position:center;position:absolute;inset:0;" />
+    <div class="hero-panel-overlay"></div>
+  </div>
+
+  <!-- Panel 3 -->
+  <div class="hero-panel hero-panel-3" aria-hidden="true">
+    <img class="hero-panel-img" src="https://images.unsplash.com/photo-1607748851687-ba9a10438621?w=900&q=85" alt="Community beauty store — warm in-store atmosphere with natural hair products" loading="eager" style="width:100%;height:100%;object-fit:cover;object-position:center top;position:absolute;inset:0;" />
+    <div class="hero-panel-overlay"></div>
+  </div>
+
+  <!-- Content overlay -->
+  <div class="hero-overlay-content" aria-hidden="false">
+    <div class="hero-content-inner">
+      <div class="hero-ctas">
+        <a href="#location" class="btn btn-white">Visit Our Store</a>
+        <a href="tel:+1XXXXXXXXXX" class="btn btn-white">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.38 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.55a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.72 16l.2.92z"/></svg>
+          Call Now / Check Availability
+        </a>
+        <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-white">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Get Directions
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint" aria-hidden="true">Scroll to explore</div>
+</section>
+
+<!-- ══ TRUST BAR ══ -->
+<div class="trust-bar" role="complementary" aria-label="Store credentials">
+  <div class="trust-bar-inner">
+    <span class="trust-item">Family-Owned</span>
+    <span class="trust-divider" aria-hidden="true">|</span>
+    <span class="trust-item">Black-Owned</span>
+    <span class="trust-divider" aria-hidden="true">|</span>
+    <span class="trust-item">Woman-Owned</span>
+    <span class="trust-divider" aria-hidden="true">|</span>
+    <span class="trust-item">Open 7 Days</span>
+    <span class="trust-divider" aria-hidden="true">|</span>
+    <span class="trust-item">500+ Premium Brands</span>
+    <span class="trust-divider" aria-hidden="true">|</span>
+    <span class="trust-item">Professional Grade Selection</span>
+  </div>
+</div>
+
+<!-- ══ PRODUCT CATEGORIES ══ -->
+<section class="categories" id="products" aria-labelledby="categories-heading">
+  <div class="container">
+    <header class="categories-header reveal">
+      <span class="section-eyebrow">What We Carry</span>
+      <h2 id="categories-heading">Explore Our In-Store Selection</h2>
+      <p>Browse our curated range of professional beauty categories. Visit us to see the full selection.</p>
+    </header>
+    <div class="categories-grid" role="list">
+
+      <article class="category-card cat-1" role="listitem" tabindex="0" aria-label="Hair Care category">
+        <div class="category-card-bg" style="background-image:url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80');background-size:cover;background-position:center;"></div>
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="category-card-label">Hair Care</div>
+          <div class="category-card-arrow">Browse In-Store →</div>
+        </div>
+      </article>
+
+      <article class="category-card cat-2" role="listitem" tabindex="0" aria-label="Wigs category">
+        <div class="category-card-bg" style="background-image:url('https://images.unsplash.com/photo-1605980776566-0486c3ac7617?w=600&q=80');background-size:cover;background-position:center;"></div>
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="category-card-label">Wigs</div>
+          <div class="category-card-arrow">Browse In-Store →</div>
+        </div>
+      </article>
+
+      <article class="category-card cat-3" role="listitem" tabindex="0" aria-label="Extensions category">
+        <div class="category-card-bg" style="background-image:url('https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=600&q=80');background-size:cover;background-position:center;"></div>
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="category-card-label">Extensions</div>
+          <div class="category-card-arrow">Browse In-Store →</div>
+        </div>
+      </article>
+
+      <article class="category-card cat-4" role="listitem" tabindex="0" aria-label="Braiding Hair category">
+        <div class="category-card-bg" style="background-image:url('https://images.unsplash.com/photo-1594254773847-9fce26e950bc?w=600&q=80');background-size:cover;background-position:center;"></div>
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="category-card-label">Braiding Hair</div>
+          <div class="category-card-arrow">Browse In-Store →</div>
+        </div>
+      </article>
+
+      <article class="category-card cat-5" role="listitem" tabindex="0" aria-label="Barber Supplies category">
+        <div class="category-card-bg" style="background-image:url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80');background-size:cover;background-position:center;"></div>
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="category-card-label">Barber Supplies</div>
+          <div class="category-card-arrow">Browse In-Store →</div>
+        </div>
+      </article>
+
+      <article class="category-card cat-6" role="listitem" tabindex="0" aria-label="Nail Supplies category">
+        <div class="category-card-bg" style="background-image:url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80');background-size:cover;background-position:center;"></div>
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="category-card-label">Nail Supplies</div>
+          <div class="category-card-arrow">Browse In-Store →</div>
+        </div>
+      </article>
+
+      <article class="category-card cat-7" role="listitem" tabindex="0" aria-label="Skin Care category">
+        <div class="category-card-bg" style="background-image:url('https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&q=80');background-size:cover;background-position:center;"></div>
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="category-card-label">Skin Care</div>
+          <div class="category-card-arrow">Browse In-Store →</div>
+        </div>
+      </article>
+
+      <article class="category-card cat-8" role="listitem" tabindex="0" aria-label="Professional Tools category">
+        <div class="category-card-bg" style="background-image:url('https://images.unsplash.com/photo-1596362601603-b74f6ef166e4?w=600&q=80');background-size:cover;background-position:center;"></div>
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="category-card-label">Professional Tools</div>
+          <div class="category-card-arrow">Browse In-Store →</div>
+        </div>
+      </article>
+
+      <article class="category-card cat-9" role="listitem" tabindex="0" aria-label="Salon Supplies category">
+        <div class="category-card-bg" style="background-image:url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&q=80');background-size:cover;background-position:center;"></div>
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="category-card-label">Salon Supplies</div>
+          <div class="category-card-arrow">Browse In-Store →</div>
+        </div>
+      </article>
+
+      <article class="category-card cat-10" role="listitem" tabindex="0" aria-label="Accessories category">
+        <div class="category-card-bg" style="background-image:url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&q=80');background-size:cover;background-position:center;"></div>
+        <div class="category-card-overlay"></div>
+        <div class="category-card-content">
+          <div class="category-card-label">Accessories</div>
+          <div class="category-card-arrow">Browse In-Store →</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURED BRANDS ══ -->
+<section class="brands" id="brands" aria-labelledby="brands-heading">
+  <div class="container">
+    <header class="brands-header reveal">
+      <span class="section-eyebrow">What We Stock</span>
+      <h2 id="brands-heading">Recognized Professional Brands Carried In-Store</h2>
+      <p>Trusted lines across hair, nail, barber, and skincare</p>
+    </header>
+    <div class="brands-divider" aria-hidden="true"></div>
+    <div class="brands-grid reveal" role="list" aria-label="Featured brand logos">
+      <div class="brand-cell" role="listitem"><div class="brand-placeholder">Mielle<br>Organics</div></div>
+      <div class="brand-cell" role="listitem"><div class="brand-placeholder">SheaMoisture</div></div>
+      <div class="brand-cell" role="listitem"><div class="brand-placeholder">Cantu</div></div>
+      <div class="brand-cell" role="listitem"><div class="brand-placeholder">ORS</div></div>
+      <div class="brand-cell" role="listitem"><div class="brand-placeholder">Dark and<br>Lovely</div></div>
+      <div class="brand-cell" role="listitem"><div class="brand-placeholder">TGIN</div></div>
+      <div class="brand-cell" role="listitem"><div class="brand-placeholder">Sensationnel</div></div>
+      <div class="brand-cell" role="listitem"><div class="brand-placeholder">Outre</div></div>
+      <div class="brand-cell" role="listitem"><div class="brand-placeholder">Bronner<br>Bros.</div></div>
+      <div class="brand-cell" role="listitem"><div class="brand-placeholder">Wahl</div></div>
+      <div class="brand-cell" role="listitem"><div class="brand-placeholder">Andis</div></div>
+      <div class="brand-cell" role="listitem"><div class="brand-placeholder">OPI</div></div>
+    </div>
+    <p style="text-align:center;margin-top:2.5rem;font-size:0.78rem;color:var(--gray-mid);letter-spacing:0.1em;text-transform:uppercase;">
+      + hundreds more professional lines available in store
+    </p>
+  </div>
+</section>
+
+<!-- ══ WHY SHOP WITH US ══ -->
+<section class="why" aria-labelledby="why-heading">
+  <div class="container">
+    <header class="why-header reveal">
+      <span class="section-eyebrow">Our Promise to You</span>
+      <h2 id="why-heading">Why Kansas City Chooses Beauty Icon KC</h2>
+    </header>
+    <div class="why-grid" role="list">
+      <div class="why-pillar reveal" role="listitem">
+        <div class="why-number" aria-hidden="true">I</div>
+        <svg class="why-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <h3>Authentic Products</h3>
+        <p>Every product on our shelves is guaranteed genuine. We source directly and curate only the lines we trust — no grey-market goods, no compromises.</p>
+      </div>
+      <div class="why-pillar reveal" role="listitem">
+        <div class="why-number" aria-hidden="true">II</div>
+        <svg class="why-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h3>Knowledgeable Staff</h3>
+        <p>Our beauty advisors are trained, passionate, and ready to help — whether you're managing textured hair, looking for the right wig, or building out your professional kit.</p>
+      </div>
+      <div class="why-pillar reveal" role="listitem">
+        <div class="why-number" aria-hidden="true">III</div>
+        <svg class="why-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <h3>Hard-to-Find Items</h3>
+        <p>We stock specialized products tailored for unique hair types, textures, and professional needs. If it's hard to find elsewhere in Kansas City, chances are we carry it.</p>
+      </div>
+      <div class="why-pillar reveal" role="listitem">
+        <div class="why-number" aria-hidden="true">IV</div>
+        <svg class="why-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <h3>Local Convenience</h3>
+        <p>Competitive pricing, community-first care, and the ease of shopping local. We're open 7 days and here when you need us — no waiting on shipping.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOR PROFESSIONALS ══ -->
+<section class="professionals" id="professionals" aria-labelledby="pro-heading">
+  <div class="professionals-visual" role="img" aria-label="Professional beauty environment" style="position:relative;overflow:hidden;">
+    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=900&q=85" alt="Professional stylist working with client in an upscale salon environment" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;" />
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,10,0.55) 0%,rgba(10,10,10,0.2) 100%);"></div>
+    <div class="professionals-vertical-text" aria-hidden="true">Beauty Icon KC — Professional Division</div>
+  </div>
+  <div class="professionals-content">
+    <span class="section-eyebrow">For the Trade</span>
+    <h2 id="pro-heading">Dedicated Support for Beauty Professionals</h2>
+    <p>Whether you're a licensed stylist, barber, nail technician, salon owner, or independent beauty professional, Beauty Icon KC is built for your business. We stock the professional-grade tools and products your clients expect.</p>
+    <nav class="pro-links" aria-label="Professional services">
+      <a href="#" class="pro-link">
+        <span>Bulk Ordering Requests</span>
+        <span class="pro-link-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="#" class="pro-link">
+        <span>Pro-Account Support</span>
+        <span class="pro-link-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="#" class="pro-link">
+        <span>Upcoming Educational Workshops</span>
+        <span class="pro-link-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="#" class="pro-link">
+        <span>In-Store Product Guidance</span>
+        <span class="pro-link-arrow" aria-hidden="true">→</span>
+      </a>
+    </nav>
+    <a href="tel:+1XXXXXXXXXX" class="btn btn-solid">Speak with a Pro Advisor</a>
+  </div>
+</section>
+
+<!-- ══ OUR STORY PREVIEW ══ -->
+<section class="story" id="story" aria-labelledby="story-heading">
+  <div class="story-content reveal">
+    <span class="section-eyebrow">Our Foundation</span>
+    <h2 id="story-heading">Born from a Gap.<br><em>Built for Community.</em></h2>
+    <p>Beauty Icon KC began with a simple frustration: Kansas City's beauty lovers — especially those with textured, natural, and protective styles — were driving across town or ordering online just to find products their hair actually needed.</p>
+    <p>So we built something different. A locally owned, community-rooted store where you walk in, feel seen, and leave with exactly what you came for — guided by staff who genuinely know beauty, not just shelves.</p>
+    <p>We are Black-owned, woman-led, and proud of it. Every brand we carry, every product we stock, and every person we hire reflects our commitment to the community that built us.</p>
+    <a href="#" class="btn">Read Our Full Story</a>
+  </div>
+  <div class="story-visual" role="img" aria-label="Founder and store community photo" style="position:relative;overflow:hidden;">
+    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=900&q=85" alt="Confident Black woman entrepreneur — beauty store founder portrait" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
+    <div class="story-visual-overlay" style="position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,0.08) 0%,rgba(10,10,10,0.45) 100%);"></div>
+    <blockquote class="story-visual-quote">
+      We didn't just open a store. We created a space where every Kansas City beauty enthusiast finally feels at home.
+    </blockquote>
+  </div>
+</section>
+
+<!-- ══ BEAUTY TIPS & BLOG ══ -->
+<section class="blog" id="blog" aria-labelledby="blog-heading">
+  <div class="container">
+    <header class="blog-header reveal">
+      <span class="section-eyebrow">Beauty Knowledge</span>
+      <h2 id="blog-heading">Tips, Guides & Beauty Advice</h2>
+      <p>Expert guidance from our in-store team, published for the community.</p>
+    </header>
+    <div class="blog-grid">
+
+      <article class="blog-card reveal">
+        <div class="blog-card-image" role="img" aria-label="Wig comparison article image" style="position:relative;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1605980776566-0486c3ac7617?w=700&q=80" alt="Synthetic vs human hair wig comparison" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;" />
+          <div class="blog-card-image-overlay"></div>
+          <span class="blog-card-category">Wigs & Extensions</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">June 2025 · 5 min read</div>
+          <h3>Synthetic vs. Human Hair Wigs: How to Choose</h3>
+          <p>Not all wigs are created equal. We break down the differences in texture, care, styling, and cost — so you can invest wisely.</p>
+          <a href="#" class="blog-card-link">Read the Guide</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal">
+        <div class="blog-card-image" role="img" aria-label="Natural hair care article image" style="position:relative;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1590621083954-c71b7a42a4f0?w=700&q=80" alt="Natural coily hair care routine products and styling" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
+          <div class="blog-card-image-overlay"></div>
+          <span class="blog-card-category">Natural Hair</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">May 2025 · 4 min read</div>
+          <h3>Essential Products for Coils, Curls, and Scalp Care Routines</h3>
+          <p>Build a consistent wash-day routine with our staff picks for moisture, definition, and scalp health — for every curl pattern.</p>
+          <a href="#" class="blog-card-link">Read the Guide</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal">
+        <div class="blog-card-image" role="img" aria-label="Nail tech supply checklist article image" style="position:relative;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=700&q=80" alt="Nail technician supplies and professional nail art tools" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;" />
+          <div class="blog-card-image-overlay"></div>
+          <span class="blog-card-category">Nail Care</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">April 2025 · 6 min read</div>
+          <h3>The Beginner Nail Tech Supply Checklist</h3>
+          <p>Starting out in nail services? Here's everything you need — from tools and lamps to gels and prep supplies — all available in-store.</p>
+          <a href="#" class="blog-card-link">Read the Guide</a>
+        </div>
+      </article>
+
+    </div>
+    <div class="blog-view-all reveal">
+      <a href="#" class="btn">View All Beauty Tips &amp; Guides</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LOCATION & HOURS ══ -->
+<section class="location" id="location" aria-labelledby="location-heading">
+  <div class="container">
+    <div class="location-grid">
+      <div class="location-info reveal">
+        <h2 id="location-heading">Visit Us in Kansas City</h2>
+
+        <div class="location-block">
+          <div class="location-label">Address</div>
+          <div class="location-value">Beauty Icon KC</div>
+          <div class="location-sub">
+            [Street Address]<br>
+            Kansas City, MO [ZIP Code]
+          </div>
+        </div>
+
+        <div class="location-block">
+          <div class="location-label">Store Hours</div>
+          <div class="hours-grid" role="table" aria-label="Store hours">
+            <div class="hours-day" role="rowheader">Monday – Saturday</div><div class="hours-time" role="cell">10:00 AM – 8:00 PM</div>
+            <div class="hours-day" role="rowheader">Sunday</div><div class="hours-time" role="cell">11:00 AM – 6:00 PM</div>
+          </div>
+        </div>
+
+        <div class="location-block">
+          <div class="location-label">Phone</div>
+          <div class="location-value"><a href="tel:+1XXXXXXXXXX" style="color:inherit;">(XXX) XXX-XXXX</a></div>
+        </div>
+
+        <div class="location-contact-btns">
+          <a href="tel:+1XXXXXXXXXX" class="btn btn-solid">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.38 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.55a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.72 16l.2.92z"/></svg>
+            Call the Store
+          </a>
+          <a href="https://wa.me/1XXXXXXXXXX" target="_blank" rel="noopener" class="btn-whatsapp" aria-label="Contact us on WhatsApp">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            WhatsApp / SMS
+          </a>
+        </div>
+      </div>
+
+      <div class="map-container reveal" role="region" aria-label="Store location map">
+        <!--
+          Replace this placeholder with an actual Google Maps embed:
+          <iframe
+            src="https://www.google.com/maps/embed?pb=..."
+            width="100%" height="440" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Beauty Icon KC Location">
+          </iframe>
+        -->
+        <div class="map-placeholder">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span>Google Maps Embed</span>
+          <small>Replace this block with your Google Maps iframe embed code</small>
+          <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn map-directions-btn">
+            Get Directions
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ══ -->
+<section class="final-cta" aria-labelledby="final-cta-heading">
+  <div class="container">
+    <span class="section-eyebrow">You're Always Welcome</span>
+    <h2 id="final-cta-heading">Visit Us Today or <em>Call to Consult</em> with a Beauty Advisor.</h2>
+    <p>No appointment needed. Just walk in, and let our team guide you to exactly what you're looking for. We're open every day of the week.</p>
+    <div class="final-cta-btns">
+      <a href="#location" class="btn btn-white">Get Store Directions</a>
+      <a href="tel:+1XXXXXXXXXX" class="btn btn-white">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.38 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.55a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.72 16l.2.92z"/></svg>
+        Call Now — (XXX) XXX-XXXX
+      </a>
+      <a href="https://wa.me/1XXXXXXXXXX" target="_blank" rel="noopener" class="btn btn-white">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <h3>Beauty <em style="font-style:italic;font-weight:400;">Icon</em> KC</h3>
+        <p>Kansas City's premier local beauty supply destination. Family-owned, Black-owned, woman-led. Serving every beauty need, every day of the week.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <!-- Instagram -->
+          <a href="#" aria-label="Follow us on Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <!-- Facebook -->
+          <a href="#" aria-label="Follow us on Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul role="list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Brands We Carry</a></li>
+          <li><a href="#">Our Products</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Professional</h4>
+        <ul role="list">
+          <li><a href="#">For Professionals</a></li>
+          <li><a href="#">Bulk Orders</a></li>
+          <li><a href="#">Pro-Account Support</a></li>
+          <li><a href="#">Workshops & Events</a></li>
+          <li><a href="#">Blog & Tips</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <ul role="list">
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="tel:+1XXXXXXXXXX">(XXX) XXX-XXXX</a></li>
+          <li><a href="#">Get Directions</a></li>
+          <li><a href="https://wa.me/1XXXXXXXXXX" target="_blank" rel="noopener">WhatsApp Us</a></li>
+          <li><a href="#">Store Hours</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Beauty Icon KC. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 60);
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // Mobile nav toggle
+  const hamburger = document.querySelector('.nav-hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('nav-open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Close mobile nav on link click
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('nav-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+<style>
+  /* Mobile nav open state */
+  @media (max-width: 900px) {
+    .nav-links.nav-open {
+      display: flex; flex-direction: column; align-items: flex-start;
+      position: absolute; top: 72px; left: 0; right: 0;
+      background: var(--white); border-bottom: 1px solid var(--gray-light);
+      padding: 1.5rem 2rem 2rem; gap: 0.25rem; z-index: 999;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .nav-links.nav-open a { font-size: 0.85rem; padding: 0.6rem 0; color: var(--black); }
+  }
+</style>
+
+</body>
+</html>
